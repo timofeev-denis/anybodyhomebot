@@ -8,7 +8,7 @@
 ### Registering WebHook
 
 ```shell
-BOT_TOKEN=*replace_with_your_token*
+BOT_TOKEN=replace_with_your_token
 
 BOT_PUBLIC_URL=https://$(curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p')
 
