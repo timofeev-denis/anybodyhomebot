@@ -1,4 +1,5 @@
 import requests
+from emoji import emojize
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -6,10 +7,12 @@ app = Flask(__name__)
 
 @app.route("/", methods=["POST"])
 def receive_update():
+    cake = emojize(":cake:", use_aliases=True)
+    pretzel = emojize(":pretzel:")
     if request.method == "POST":
         print(request.json)
     chat_id = request.json["message"]["chat"]["id"]
-    send_message(chat_id, ">" + request.json["message"]["text"])
+    send_message(chat_id, cake + pretzel + " " + request.json["message"]["text"] + "🐧")
     return jsonify(ok=True)
 
 
